@@ -15,4 +15,11 @@ XGBoost model consists of several hyper parameters that need to be tuned properl
 1. **Booster parameters**: Guides individual boosters (trees/regression) at each step. Depends on the choice made in general parameters.
 1. **Learning task parameters**: Guides the optimization process.
 
+### 1. General Parameters
+These parameters guide the overall functionality of the model. The main 3 parameters are described below. The other 2 parameters are automatically set by the model itself.
+  1. **booster [Default: gbtree]** – the booster to be used at each iteration. 2 main options are available. ‘dart’ is the third option, yet it is rarely used.
+    * gbtree: tree based models
+    * gblinear: linear models
+
+
 
