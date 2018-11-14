@@ -22,6 +22,7 @@ These parameters guide the overall functionality of the model. The main 3 parame
       * gbtree: tree based models
       * gblinear: linear models
       
+      
   1. **silent [Default: 0]** – if set to 1, no running messages will be printed. Yet these messages can be helpful sometimes.
   
   1. **nthread [Default is set to the maximum number of threads available]** – used for parallel processing. If you wish to run on all cores, then the number need not to be added. The algorithm detects it itself. Otherwise add the necessary number of cores.
