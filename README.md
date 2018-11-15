@@ -22,7 +22,6 @@ These parameters guide the overall functionality of the model. The main 3 parame
       * gbtree: tree based models
       * gblinear: linear models
       
-      
   1. **silent [Default: 0]** – if set to 1, no running messages will be printed. Yet these messages can be helpful sometimes.
   
   1. **nthread [Default is set to the maximum number of threads available]** – used for parallel processing. If you wish to run on all cores, then the number need not to be added. The algorithm detects it itself. Otherwise add the necessary number of cores.
@@ -65,7 +64,8 @@ These parameter deals with the optimization process of the model.
       * **multi: softprob** – similar to softmax, yet returns the predicted probability of each datapoint to belong in each class.
 
 
-      
+ 
+ 
   1. **eval_metric [Default differs according to objective]** – indicates the metric that should be used in validation phase. Default values are rmse for regression and error for classification problems. The available options are as follows.
   
       * **rmse** - root mean square error
@@ -75,6 +75,7 @@ These parameter deals with the optimization process of the model.
       * **merror** -  error rate for multi class classification
       * **mlogloss** - multi class log loss
       * **auc** - area under the curve
+   
    
    
    
