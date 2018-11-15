@@ -26,11 +26,13 @@ These parameters guide the overall functionality of the model. The main 3 parame
   1. **silent [Default: 0]** – if set to 1, no running messages will be printed. Yet these messages can be helpful sometimes.
   
   1. **nthread [Default is set to the maximum number of threads available]** – used for parallel processing. If you wish to run on all cores, then the number need not to be added. The algorithm detects it itself. Otherwise add the necessary number of cores.
+  
 
-### 1. Booster Parameters
+### 2. Booster Parameters
 As mentioned above, there are 2 boosters in the model. Yet, the most used booster is gbtree as it always outperforms gblinear. Therefore, only gbtree is described here.
 
   1. **learning_rate [Default: 0.3]** – makes the model more vigorous by shrinking the weights on each step. Typical values lie between 0.01-0.03.
+  
   
   1. **min-child-weight [Default: 1]** – minimum sum of instance weight required in a child. Used to control overfitting. Higher values can prevent the model from learning relations that might be highly specific to a particular sample. Yet too high values will cause underfitting. Should be tuned using Cross Validation (CV).
   
@@ -51,6 +53,45 @@ As mentioned above, there are 2 boosters in the model. Yet, the most used booste
   1. **reg_alpha [Default: 1]** – L1 regularization term on weights. In case of a very high dimensionality problem this constant can be used to run the algorithm faster.
   
   1. **scale_pos_weight [Default: 1]** – in case of high class imbalance, a value greater than 0 should be used for faster convergence.
+  
+### 3. Learning Task Parameters
+These parameter deals with the optimization process of the model.
+
+  1. **objective [Default: reg: linear]** – indicates the loss function to be minimized. Mostly used options are,
+  
+      * **reg: linear** – used for regression problems.
+      * **binary: logistic** – used for logistic regression in binary classification problems. Returns the predicted probability, not the class.
+      * **multi: softmax** – used for multi class classification. Returns the predicted class, not the probability. An additional parameter ‘num_class’ also have to be set to specify the number of unique classes.
+      * **multi: softprob** – similar to softmax, yet returns the predicted probability of each datapoint to belong in each class.
+      
+  1. **eval_metric [Default differs according to objective]** – indicates the metric that should be used in validation phase. Default values are rmse for regression and error for classification problems. The available options are as follows.
+  
+      * **rmse** - root mean square error
+      * **mae** - mean absolute error
+      * **logloss** - negative log-likelihood
+      * **error** - error rate for binary classification (0.5 threshold)
+      * **merror** -  error rate for multi class classification
+      * **mlogloss** - multi class log loss
+      * **auc** - area under the curve
+      
+  1. **seed [Default: 0]** – the random number seed. Can be used to create reproducible results.
+  
+Apart from these hyper parameters, ‘n_estimators’ parameter that specifies the number of trees to be created should also be specified.
+
+It is indeed a tedious task to find right value for each of the hyper parameter. These values can depend on various factors such as the nature of the dataset, number of available data points etc. Hence, model optimization algorithms with cross-validation technique can be used to find out the optimal values for each of above hyper parameters. This will be explained in a separate article.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
