@@ -63,6 +63,8 @@ These parameter deals with the optimization process of the model.
       * **binary: logistic** – used for logistic regression in binary classification problems. Returns the predicted probability, not the class.
       * **multi: softmax** – used for multi class classification. Returns the predicted class, not the probability. An additional parameter ‘num_class’ also have to be set to specify the number of unique classes.
       * **multi: softprob** – similar to softmax, yet returns the predicted probability of each datapoint to belong in each class.
+
+
       
   1. **eval_metric [Default differs according to objective]** – indicates the metric that should be used in validation phase. Default values are rmse for regression and error for classification problems. The available options are as follows.
   
@@ -73,7 +75,9 @@ These parameter deals with the optimization process of the model.
       * **merror** -  error rate for multi class classification
       * **mlogloss** - multi class log loss
       * **auc** - area under the curve
-      
+   
+   
+   
   1. **seed [Default: 0]** – the random number seed. Can be used to create reproducible results.
   
 Apart from these hyper parameters, ‘n_estimators’ parameter that specifies the number of trees to be created should also be specified.
